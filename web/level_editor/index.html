@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gravity Editor Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="hud">
+        <button id="btnMenu">Manage Levels</button>
+        <div id="controlsHelp">Arrows: Move | Shift+Arrows: Move Point | Space: Add | Del: Remove</div>
+    </div>
+
+    <!-- Main Manager Menu -->
+    <div id="menuOverlay" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Manage Levels</h2>
+            <div class="flex-row">
+                <select id="selLeague" size="3">
+                    <option value="0" selected>Easy</option>
+                    <option value="1">Medium</option>
+                    <option value="2">Pro</option>
+                </select>
+                <select id="selLevel" size="8"></select>
+            </div>
+            <div class="toolbar">
+                <button id="btnMoveUp">Move Up</button>
+                <button id="btnMoveDown">Move Down</button>
+                <button id="btnCopy">Copy</button>
+                <button id="btnPaste">Paste</button>
+                <button id="btnNew">Create New</button>
+                <button id="btnRemove">Remove</button>
+                <button id="btnProp">Properties</button>
+            </div>
+            <div class="toolbar split-top">
+                <input type="file" id="fileLoad" accept=".mrg" style="display: none;">
+                <button onclick="document.getElementById('fileLoad').click()">Load .mrg</button>
+                <button id="btnSave">Save .mrg</button>
+                <button id="btnCloseMenu" class="primary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Properties Menu -->
+    <div id="propOverlay" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Level Properties</h2>
+            <label>Name:</label>
+            <input type="text" id="inpLevelName" maxlength="32">
+            <div class="toolbar split-top">
+                <button id="btnPropOk" class="primary">OK</button>
+                <button id="btnPropCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
